@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductSellerTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateProductSellerTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_seller', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
-            $table->foreignId('seller_id')->constrained();
+            $table->string('title');
+            $table->text('advantages');
+            $table->text('disadvantages');
+            $table->longText('description');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateProductSellerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_seller');
+        Schema::dropIfExists('comments');
     }
 }
