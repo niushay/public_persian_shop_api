@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('create_product',[ProductController::class, 'create'] );
+Route::get('create',[ProductController::class, 'createView'] );
+Route::post('create',[ProductController::class, 'create'] );
+
