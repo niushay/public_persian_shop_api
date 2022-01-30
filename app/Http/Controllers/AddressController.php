@@ -10,22 +10,22 @@ class AddressController extends Controller
 {
     public function getAllCities()
     {
-        $cities = City::all();
+        $cities = City::get();
 
         return response()->json([
             'status' => 1,
             'message' => 'All cities',
-            'cities' => $cities
+            'data' => $cities
         ]);
     }
 
     public function getAllStates()
     {
-        $states = State::all();
+        $states = State::get();
         return response()->json([
             'status' => 1,
             'message' => 'All states',
-            'cities' => $states
+            'data' => $states
         ]);
     }
 
@@ -36,7 +36,7 @@ class AddressController extends Controller
             return response()->json([
                 'status' => 0,
                 'message' => 'This State Was Not Found',
-                'cities' => null
+                'data' => null
             ]);
         }
         $cities = $state -> cities -> makeHidden('state_id');
@@ -45,7 +45,7 @@ class AddressController extends Controller
         return response()->json([
             'status' => 1,
             'message' => 'کل شهرهای استان ' . $state,
-            'cities' => $cities
+            'data' => $cities
         ]);
     }
 }

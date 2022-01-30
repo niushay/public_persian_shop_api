@@ -1,8 +1,10 @@
 <?php
-
-use App\Http\Controllers\AddressController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Address API
 Route::get('cities', [AddressController::class,'getAllCities']);
 Route::get('states', [AddressController::class,'getAllStates']);
 Route::get('cities/{id}', [AddressController::class,'getCitiesOfState']);
+
+//Category API
+Route::get('categories',[CategoryController::class,'categories']);
+Route::get('category/{id}',[CategoryController::class,'category']);
+Route::get('sub_categories/{id}',[CategoryController::class,'subCategories']);

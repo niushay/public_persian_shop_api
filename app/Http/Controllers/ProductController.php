@@ -24,7 +24,5 @@ class ProductController extends Controller
             'category_id'=> 'required|max',
             'qty' => 'required|max'
         ]);
-
-
     }
 }
