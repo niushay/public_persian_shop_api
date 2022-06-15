@@ -14,7 +14,18 @@
 
     <body>
         <!-- Form -->
-        <div class="container">
+        <div class="container d-flex flex-column align-items-center">
+            {{--Show success Messages--}}
+            @if(session('success') != null)
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            {{session('success')}}
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             @yield('content')
         </div>
 

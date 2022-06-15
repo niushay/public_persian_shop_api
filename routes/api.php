@@ -30,3 +30,6 @@ Route::get('cities/{id}', [AddressController::class,'getCitiesOfState']);
 Route::get('categories',[CategoryController::class,'categories']);
 Route::get('category/{id}',[CategoryController::class,'category']);
 Route::get('sub_categories/{id}',[CategoryController::class,'subCategories']);
+
+
+//Products API

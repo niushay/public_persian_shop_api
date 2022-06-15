@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('create',[ProductController::class, 'createView'] );
-Route::post('create',[ProductController::class, 'create'] );
+Route::post('create',[ProductController::class, 'create'] )->name('products.create');
 
